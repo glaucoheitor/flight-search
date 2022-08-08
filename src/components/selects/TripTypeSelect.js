@@ -16,7 +16,12 @@ import {
   SvgIcon,
 } from "@mui/material";
 
-import SyncAltIcon from "@mui/icons-material/SyncAlt";
+import {
+  SyncAlt as SyncAltIcon,
+  ArrowRightAlt as ArrowRightAltIcon,
+  MultipleStop as MultipleStopIconv,
+  Check as CheckIcon,
+} from "@mui/icons-material";
 
 export default function TripTypeSelect({ tripType, setTripType }) {
   return (
@@ -33,7 +38,7 @@ export default function TripTypeSelect({ tripType, setTripType }) {
         mr: 1,
         mt: 0.75,
         mb: 1,
-        height: "36px",
+        //height: "36px",
         backgroundColor: "transparent",
       }}
       renderValue={(value) => {
@@ -60,17 +65,66 @@ export default function TripTypeSelect({ tripType, setTripType }) {
                 Round trip
               </>
             )}
+            {value === "oneway" && (
+              <>
+                <ArrowRightAltIcon
+                  fontSize="small"
+                  fontWeight={500}
+                  sx={{
+                    mr: 1.5,
+                  }}
+                />
+                One way
+              </>
+            )}
+            {value === "multi" && (
+              <>
+                <SyncAltIcon
+                  fontSize="small"
+                  fontWeight={500}
+                  sx={{
+                    mr: 1.5,
+                  }}
+                />
+                Multi-city
+              </>
+            )}
           </Typography>
         );
       }}
     >
       <MenuItem value="round" key="round" selected={tripType === "round"}>
-        <SyncAltIcon fontSize=".875rem" fontWeight={500} />
-      </MenuItem>
-      <MenuItem value="oneway" key="oneway" selected={tripType === "oneway"}>
-        <SyncAltIcon fontSize=".875rem" fontWeight={500} />
+        <CheckIcon
+          fontSize=".875rem"
+          fontWeight={500}
+          sx={{
+            visibility: tripType === "round" ? "visible" : "hidden",
+          }}
+        />
         <Typography
           sx={{
+            pl: 1,
+            fontSize: ".875rem",
+            letterSpacing: ".0107142857em",
+            fontWeight: 500,
+            textTransform: "none",
+            textOverflow: "ellipsis",
+          }}
+        >
+          Round Trip
+        </Typography>
+      </MenuItem>
+      <MenuItem value="oneway" key="oneway" selected={tripType === "oneway"}>
+        <CheckIcon
+          fontSize=".875rem"
+          fontWeight={500}
+          sx={{
+            visibility: tripType === "oneway" ? "visible" : "hidden",
+          }}
+        />
+        <Typography
+          sx={{
+            pl: 1,
             fontSize: ".875rem",
             letterSpacing: ".0107142857em",
             fontWeight: 500,
@@ -82,7 +136,25 @@ export default function TripTypeSelect({ tripType, setTripType }) {
         </Typography>
       </MenuItem>
       <MenuItem value="multi" key="multi" selected={tripType === "multi"}>
-        Multi-city
+        <CheckIcon
+          fontSize=".875rem"
+          fontWeight={500}
+          sx={{
+            visibility: tripType === "multi" ? "visible" : "hidden",
+          }}
+        />
+        <Typography
+          sx={{
+            pl: 1,
+            fontSize: ".875rem",
+            letterSpacing: ".0107142857em",
+            fontWeight: 500,
+            textTransform: "none",
+            textOverflow: "ellipsis",
+          }}
+        >
+          Multi-city
+        </Typography>
       </MenuItem>
     </Select>
   );
