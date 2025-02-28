@@ -12,6 +12,7 @@ export default function CabinClassSelector({
         onChange={handleCabinClassChange}
         sx={{
           color: "white",
+          // Updated styling for MUI v6
           ".MuiOutlinedInput-notchedOutline": { border: "none" },
           "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
             border: "none",

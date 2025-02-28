@@ -28,11 +28,34 @@ export default function FlightSearchForm({
         overflow: "hidden",
         bgcolor: "rgba(33, 33, 33, 0.9)",
         color: "white",
+        // Using container query support in MUI v6 for responsive design
+        containerType: "inline-size",
       }}
     >
       {/* Trip type and passenger selection */}
-      <Box sx={{ p: 2 }}>
-        <Stack direction="row" spacing={2} alignItems="center">
+      <Box
+        sx={{
+          p: 2,
+          // Using MUI v6 container queries
+          "@container (max-width: 600px)": {
+            flexDirection: "column",
+            alignItems: "stretch",
+          },
+        }}
+      >
+        <Stack
+          direction="row"
+          spacing={2}
+          alignItems="center"
+          sx={{
+            // Container queries for responsive layout
+            "@container (max-width: 600px)": {
+              flexDirection: "column",
+              alignItems: "stretch",
+              gap: 2,
+            },
+          }}
+        >
           <TripTypeSelector
             tripType={tripType}
             handleTripTypeChange={handleTripTypeChange}
@@ -41,7 +64,12 @@ export default function FlightSearchForm({
           <Divider
             orientation="vertical"
             flexItem
-            sx={{ bgcolor: "rgba(255, 255, 255, 0.2)" }}
+            sx={{
+              bgcolor: "rgba(255, 255, 255, 0.2)",
+              "@container (max-width: 600px)": {
+                display: "none",
+              },
+            }}
           />
 
           <PassengerSelector
@@ -52,7 +80,12 @@ export default function FlightSearchForm({
           <Divider
             orientation="vertical"
             flexItem
-            sx={{ bgcolor: "rgba(255, 255, 255, 0.2)" }}
+            sx={{
+              bgcolor: "rgba(255, 255, 255, 0.2)",
+              "@container (max-width: 600px)": {
+                display: "none",
+              },
+            }}
           />
 
           <CabinClassSelector

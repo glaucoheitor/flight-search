@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Box, Typography, Container } from "@mui/material";
-import FlightSearchForm from "./components/FlightSearchForm";
+import HeroSection from "./components/HeroSection";
+import FlightSearchSection from "./components/FlightSearchSection";
 
 export default function App() {
   // State for the form fields
@@ -27,9 +28,8 @@ export default function App() {
 
   // Handle origin swap with destination
   const handleSwapLocations = () => {
-    const temp = from;
     setFrom(to);
-    setTo(temp);
+    setTo(from);
   };
 
   return (
@@ -43,40 +43,19 @@ export default function App() {
         position: "relative",
       }}
     >
-      {/* Hero section with mountains and heading */}
-      <Box
-        sx={{
-          pt: 10,
-          pb: 15,
-          color: "white",
-          textAlign: "center",
-        }}
-      >
-        <Typography
-          variant="h2"
-          component="h1"
-          sx={{ fontWeight: "bold", mb: 4 }}
-        >
-          Flights
-        </Typography>
-
-        {/* Search container */}
-        <Container maxWidth="md">
-          <FlightSearchForm
-            tripType={tripType}
-            handleTripTypeChange={handleTripTypeChange}
-            passengers={passengers}
-            handlePassengerChange={handlePassengerChange}
-            cabinClass={cabinClass}
-            handleCabinClassChange={handleCabinClassChange}
-            from={from}
-            to={to}
-            setFrom={setFrom}
-            setTo={setTo}
-            handleSwapLocations={handleSwapLocations}
-          />
-        </Container>
-      </Box>
+      <FlightSearchSection
+        tripType={tripType}
+        handleTripTypeChange={handleTripTypeChange}
+        passengers={passengers}
+        handlePassengerChange={handlePassengerChange}
+        cabinClass={cabinClass}
+        handleCabinClassChange={handleCabinClassChange}
+        from={from}
+        to={to}
+        setFrom={setFrom}
+        setTo={setTo}
+        handleSwapLocations={handleSwapLocations}
+      />
     </Box>
   );
 }

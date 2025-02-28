@@ -10,6 +10,7 @@ export default function TripTypeSelector({ tripType, handleTripTypeChange }) {
         onChange={handleTripTypeChange}
         sx={{
           color: "white",
+          // Updated styling for MUI v6
           ".MuiOutlinedInput-notchedOutline": { border: "none" },
           "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
             border: "none",

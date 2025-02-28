@@ -13,6 +13,7 @@ export default function PassengerSelector({
         onChange={handlePassengerChange}
         sx={{
           color: "white",
+          // Updated styling for MUI v6
           ".MuiOutlinedInput-notchedOutline": { border: "none" },
           "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
             border: "none",
