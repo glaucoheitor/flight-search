@@ -63,6 +63,59 @@ const theme = extendTheme({
         }),
       },
     },
+    // Date picker components customization
+    MuiPickersDay: {
+      styleOverrides: {
+        root: {
+          borderRadius: 8,
+          "&.Mui-selected": {
+            backgroundColor: "#4285F4",
+            "&:hover": {
+              backgroundColor: "#3367D6",
+            },
+          },
+          "&:hover": {
+            backgroundColor: "rgba(66, 133, 244, 0.1)",
+          },
+        },
+        today: {
+          border: "1px solid #4285F4",
+        },
+      },
+    },
+    MuiDateCalendar: {
+      styleOverrides: {
+        root: {
+          width: "auto",
+          backgroundColor: "#fff",
+        },
+      },
+    },
+    MuiPickersCalendarHeader: {
+      styleOverrides: {
+        root: {
+          paddingLeft: 16,
+          paddingRight: 16,
+        },
+        label: {
+          fontWeight: "bold",
+          fontSize: "1rem",
+        },
+        switchViewButton: {
+          color: "#4285F4",
+        },
+      },
+    },
+    MuiDayCalendar: {
+      styleOverrides: {
+        header: {
+          justifyContent: "center",
+        },
+        weekContainer: {
+          justifyContent: "center",
+        },
+      },
+    },
   },
 });
 

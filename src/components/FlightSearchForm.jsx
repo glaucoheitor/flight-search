@@ -1,5 +1,5 @@
 import React from "react";
-import { Paper, Box, Stack, Divider } from "@mui/material";
+import { Paper, Box, Stack, Divider, Grid } from "@mui/material";
 import TripTypeSelector from "./TripTypeSelector";
 import PassengerSelector from "./PassengerSelector";
 import CabinClassSelector from "./CabinClassSelector";
@@ -28,7 +28,6 @@ export default function FlightSearchForm({
         overflow: "hidden",
         bgcolor: "rgba(33, 33, 33, 0.9)",
         color: "white",
-        // Using container query support in MUI v6 for responsive design
         containerType: "inline-size",
       }}
     >
@@ -36,7 +35,6 @@ export default function FlightSearchForm({
       <Box
         sx={{
           p: 2,
-          // Using MUI v6 container queries
           "@container (max-width: 600px)": {
             flexDirection: "column",
             alignItems: "stretch",
@@ -48,7 +46,6 @@ export default function FlightSearchForm({
           spacing={2}
           alignItems="center"
           sx={{
-            // Container queries for responsive layout
             "@container (max-width: 600px)": {
               flexDirection: "column",
               alignItems: "stretch",
@@ -95,24 +92,27 @@ export default function FlightSearchForm({
         </Stack>
       </Box>
 
-      {/* Destination inputs */}
-      <Box sx={{ px: 2, pb: 2 }}>
-        <LocationInputs
-          from={from}
-          to={to}
-          setFrom={setFrom}
-          setTo={setTo}
-          handleSwapLocations={handleSwapLocations}
-        />
-      </Box>
+      {/* Main inputs section - all on same line */}
+      <Grid container spacing={2} sx={{ px: 2, pb: 2 }}>
+        {/* Location inputs - takes 60% of space */}
+        <Grid item xs={12} md={7}>
+          <LocationInputs
+            from={from}
+            to={to}
+            setFrom={setFrom}
+            setTo={setTo}
+            handleSwapLocations={handleSwapLocations}
+          />
+        </Grid>
 
-      {/* Date selection */}
-      <Box sx={{ px: 2, pb: 2 }}>
-        <DateInputs tripType={tripType} />
-      </Box>
+        {/* Date inputs - takes 40% of space */}
+        <Grid item xs={12} md={5}>
+          <DateInputs tripType={tripType} />
+        </Grid>
+      </Grid>
 
       {/* Search button */}
-      <Box sx={{ px: 2, pb: 3 }}>
+      <Box sx={{ px: 2, pb: 3, mt: 2 }}>
         <SearchButton />
       </Box>
     </Paper>

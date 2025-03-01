@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { Box, Typography, Container } from "@mui/material";
-import HeroSection from "./components/HeroSection";
+import { Box } from "@mui/material";
 import FlightSearchSection from "./components/FlightSearchSection";
 
 export default function App() {

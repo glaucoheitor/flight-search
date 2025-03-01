@@ -12,12 +12,13 @@ export default function LocationInputs({
   handleSwapLocations,
 }) {
   return (
-    <Stack direction="row" spacing={2}>
+    <Stack direction="row" spacing={1} alignItems="center">
       <TextField
         value={from}
         onChange={(e) => setFrom(e.target.value)}
         placeholder="Where from?"
         fullWidth
+        size="medium"
         InputProps={{
           startAdornment: (
             <InputAdornment position="start">
@@ -38,7 +39,10 @@ export default function LocationInputs({
         }}
       />
 
-      <IconButton onClick={handleSwapLocations} sx={{ color: "white" }}>
+      <IconButton
+        onClick={handleSwapLocations}
+        sx={{ color: "white", mx: 0.5 }}
+      >
         <SwapHorizIcon />
       </IconButton>
 
@@ -47,6 +51,7 @@ export default function LocationInputs({
         onChange={(e) => setTo(e.target.value)}
         placeholder="Where to?"
         fullWidth
+        size="medium"
         InputProps={{
           startAdornment: (
             <InputAdornment position="start">
